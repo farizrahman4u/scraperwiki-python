@@ -57,7 +57,7 @@ def pdftoxml(pdfdata, options=""):
     #xmlfin = open(tmpxml)
     xmldata = xmlin.read()
     xmlin.close()
-    return xmldata.decode('utf-8')
+    return xmldata
 
 
 def _in_box():
