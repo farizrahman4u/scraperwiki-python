@@ -50,7 +50,8 @@ def pdftoxml(pdfdata, options=""):
     cmd = 'pdftohtml -xml -nodrm -zoom 1.5 -enc UTF-8 -noframes %s "%s" "%s"' % (
         options, pdffout.name, os.path.splitext(tmpxml)[0])
     # can't turn off output, so throw away even stderr yeuch
-    cmd = cmd + " >/dev/null 2>&1"
+    if os.name != 'nt':
+        cmd = cmd + " >/dev/null 2>&1"
     os.system(cmd)
 
     pdffout.close()
